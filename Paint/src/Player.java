@@ -1,4 +1,3 @@
-
 public class Player {
 
 	int x, y, w, h;
@@ -53,9 +52,14 @@ public class Player {
 	}
 	
 	public String colision(Player p) {
-		if((this.getX() + this.getH()) > p.getX() && this.getY() + this.getW() > p.getY() && this.getY() < p.getY() + p.getH() && this.getX() < p.getX() + p.getW()) {
-			return "Colision";
-		}
-		return "No";
+		 	boolean colisionX = (this.x <= p.getX() + p.getW()) && (this.x + this.w >= p.getX());
+	     
+	        boolean colisionY = (this.y <= p.getY() + p.getH()) && (this.y + this.h >= p.getY());
+
+	        if (colisionX && colisionY) {
+	            return "Colision";
+	        } else {
+	        	return "No";
+	        }
 	}
 }
